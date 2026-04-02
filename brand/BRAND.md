@@ -6,7 +6,7 @@ All echo* brand logos share a unified visual language: a primary icon with circu
 
 | Brand | Icon | Color | Glow | File |
 |---|---|---|---|---|
-| **echomodel** | Orb + ring | Blue (#58A6FF) | No | `echomodel-logo-512.png` |
+| **echomodel** | Orb + ring | Blue (#58A6FF) | Yes | `echomodel-logo-512.png` |
 | **echoskill** | Wrench (Lucide, MIT) | Cyan (#5ED4E6 → #1F8494) | Yes | `echoskill-logo-512.png` |
 | **echofit** | Heart (Lucide, MIT) | Pink (#F0A0E0 → #8B2F8B) | Yes | `echofit-logo-512.png` |
 | **echosphere** | Concentric rings | Blue→Purple→Pink gradient | N/A | `echosphere-logo-512-dark.png` |
@@ -24,7 +24,7 @@ Each brand's logo is in its org's `.github` repo under `brand/`:
 
 **Circuit traces** — asymmetric horizontal and vertical lines with dot endpoints. Some traces cross through the icon area. No diagonals. Not mirrored. Suggests "neural network" without being literal.
 
-**Glow** — soft radial gradient behind the icon (echoskill, echofit). echomodel omits glow since the orb itself is luminous.
+**Glow** — soft radial gradient behind the icon. All three brand logos use glow.
 
 **Dark background** — all logos use #0D1117 (GitHub dark theme).
 
