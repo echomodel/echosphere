@@ -1,0 +1,13 @@
+<svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="256" cy="256" r="230" stroke="url(#grad)" stroke-width="12" fill="none" opacity="0.3"/>
+  <circle cx="256" cy="256" r="166" stroke="url(#grad)" stroke-width="14" fill="none" opacity="0.5"/>
+  <circle cx="256" cy="256" r="102" stroke="url(#grad)" stroke-width="16" fill="none" opacity="0.8"/>
+  <circle cx="256" cy="256" r="32" fill="url(#grad)"/>
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="512" y2="512">
+      <stop offset="0%" stop-color="#58A6FF"/>
+      <stop offset="50%" stop-color="#A371F7"/>
+      <stop offset="100%" stop-color="#F778BA"/>
+    </linearGradient>
+  </defs>
+</svg>
