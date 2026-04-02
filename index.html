@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>echosphere — The Echo Brand Family</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0D1117;
+      color: #E6EDF3;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .sphere-icon {
+      width: 80px;
+      height: 80px;
+      margin: 2rem auto 1rem;
+      position: relative;
+    }
+    .sphere-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      background: linear-gradient(135deg, #58A6FF, #A371F7, #F778BA);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .tagline {
+      font-size: 1.05rem;
+      color: #8B949E;
+      margin-bottom: 1.5rem;
+    }
+    .intro {
+      font-size: 0.95rem;
+      color: #C9D1D9;
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Brand cards — top-level */
+    .brands {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin-top: 2.5rem;
+    }
+    .brand-card {
+      background: #161B22;
+      border: 1px solid #30363D;
+      border-radius: 12px;
+      padding: 1.8rem 1.4rem;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .brand-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .brand-card .brand-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+    .brand-card h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #E6EDF3;
+      margin-bottom: 0.3rem;
+    }
+    .brand-card .domain {
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 500;
+    }
+    .brand-card p {
+      font-size: 0.82rem;
+      color: #8B949E;
+      line-height: 1.5;
+    }
+
+    /* Accent colors per brand */
+    .brand-model { --accent: #58A6FF; }
+    .brand-skill { --accent: #3FB9CF; }
+    .brand-fit { --accent: #DA70D6; }
+
+    .brand-model .brand-icon { background: #112240; }
+    .brand-skill .brand-icon { background: #0D2D33; }
+    .brand-fit .brand-icon { background: #2D1230; }
+
+    /* Sub-brands section */
+    .section-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #484F58;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 3.5rem;
+      margin-bottom: 0.3rem;
+      text-align: center;
+    }
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #E6EDF3;
+      text-align: center;
+      margin-bottom: 0.4rem;
+    }
+    .section-desc {
+      font-size: 0.88rem;
+      color: #8B949E;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .sub-brands {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem;
+    }
+    .sub-card {
+      background: #161B22;
+      border: 1px solid #30363D;
+      border-radius: 8px;
+      padding: 1.2rem;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .sub-card:hover { border-color: #DA70D6; }
+    .sub-card .sub-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+    }
+    .sub-card h3 {
+      font-size: 0.9rem;
+      color: #E6EDF3;
+      margin-bottom: 0.2rem;
+    }
+    .sub-card .sub-label {
+      font-size: 0.7rem;
+      color: #DA70D6;
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+    }
+    .sub-card p {
+      font-size: 0.78rem;
+      color: #8B949E;
+      line-height: 1.4;
+    }
+
+    /* Ecosystem diagram */
+    .ecosystem {
+      margin-top: 3.5rem;
+      text-align: center;
+    }
+    .eco-row {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-bottom: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .eco-pill {
+      font-size: 0.72rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .eco-pill-model { background: #112240; color: #58A6FF; border: 1px solid #1F3A5F; }
+    .eco-pill-skill { background: #0D2D33; color: #3FB9CF; border: 1px solid #1A4850; }
+    .eco-pill-fit { background: #2D1230; color: #DA70D6; border: 1px solid #4A1D50; }
+    .eco-pill:hover { opacity: 0.8; }
+    .eco-connector {
+      color: #30363D;
+      font-size: 0.7rem;
+      margin: 0.2rem 0;
+    }
+
+    footer {
+      text-align: center;
+      color: #484F58;
+      font-size: 0.8rem;
+      margin-top: 3.5rem;
+      padding-bottom: 2rem;
+    }
+    footer a {
+      color: #58A6FF;
+      text-decoration: none;
+    }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .brands { grid-template-columns: 1fr; }
+      .sub-brands { grid-template-columns: 1fr; }
+      h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="sphere-icon">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="36" stroke="url(#grad)" stroke-width="2" fill="none" opacity="0.3"/>
+          <circle cx="40" cy="40" r="26" stroke="url(#grad)" stroke-width="2" fill="none" opacity="0.5"/>
+          <circle cx="40" cy="40" r="16" stroke="url(#grad)" stroke-width="2.5" fill="none" opacity="0.8"/>
+          <circle cx="40" cy="40" r="5" fill="url(#grad)"/>
+          <defs>
+            <linearGradient id="grad" x1="0" y1="0" x2="80" y2="80">
+              <stop offset="0%" stop-color="#58A6FF"/>
+              <stop offset="50%" stop-color="#A371F7"/>
+              <stop offset="100%" stop-color="#F778BA"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <h1>echosphere</h1>
+      <p class="tagline">The echo brand family</p>
+      <p class="intro">
+        An ecosystem of AI-powered products and open-source frameworks.
+        Each echo brand serves a distinct purpose — from developer infrastructure
+        to consumer solutions — connected by shared technology and design language.
+      </p>
+    </div>
+
+    <!-- Top-level brands -->
+    <div class="brands">
+      <a href="https://echomodel.ai" class="brand-card brand-model">
+        <div class="brand-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#58A6FF" stroke-width="1.5">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h2>echomodel</h2>
+        <span class="domain">echomodel.ai</span>
+        <p>AI agent ecosystem. Frameworks, tools, and the developer platform that powers everything.</p>
+      </a>
+      <a href="https://echoskill.ai" class="brand-card brand-skill">
+        <div class="brand-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3FB9CF" stroke-width="1.5">
+            <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <h2>echoskill</h2>
+        <span class="domain">echoskill.ai</span>
+        <p>AI agent skills marketplace. Reusable capabilities for Claude Code, Gemini CLI, and more.</p>
+      </a>
+      <a href="https://echofit.ai" class="brand-card brand-fit">
+        <div class="brand-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#DA70D6" stroke-width="1.5">
+            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+          </svg>
+        </div>
+        <h2>echofit</h2>
+        <span class="domain">echofit.ai</span>
+        <p>AI-powered fitness, nutrition, and health tracking through conversational agents.</p>
+      </a>
+    </div>
+
+    <!-- EchoFit sub-brands -->
+    <div class="section-label">echofit.ai</div>
+    <div class="section-title">Health &amp; Wellness Suite</div>
+    <p class="section-desc">
+      Specialized modules within echofit, each focused on a different
+      dimension of personal health.
+    </p>
+
+    <div class="sub-brands">
+      <div class="sub-card">
+        <div class="sub-icon">🥗</div>
+        <h3>EchoFit Diet</h3>
+        <div class="sub-label">echofit.ai/diet</div>
+        <p>Meal logging, calorie tracking, macro breakdowns, and personalized nutrition insights powered by AI.</p>
+      </div>
+      <div class="sub-card">
+        <div class="sub-icon">💪</div>
+        <h3>EchoFit Workout</h3>
+        <div class="sub-label">echofit.ai/workout</div>
+        <p>Exercise logging, workout plans, progress tracking, and rep/set analysis through natural conversation.</p>
+      </div>
+      <div class="sub-card">
+        <div class="sub-icon">❤️‍🩹</div>
+        <h3>EchoFit Health</h3>
+        <div class="sub-label">echofit.ai/health</div>
+        <p>Blood pressure, vitals, water intake, sleep, and holistic health metrics — all logged via your AI agent.</p>
+      </div>
+    </div>
+
+    <!-- Ecosystem map -->
+    <div class="ecosystem">
+      <div class="section-label" style="margin-top: 3.5rem;">ecosystem</div>
+      <div class="section-title">How It Connects</div>
+      <p class="section-desc">
+        echomodel provides the foundation. echoskill extends agent capabilities.
+        echofit delivers the consumer experience.
+      </p>
+      <div class="eco-row">
+        <span class="eco-pill eco-pill-model">mcp-app</span>
+        <span class="eco-pill eco-pill-model">app-user</span>
+        <span class="eco-pill eco-pill-model">gapp</span>
+        <span class="eco-pill eco-pill-model">echomodel CLI</span>
+      </div>
+      <div class="eco-connector">▼</div>
+      <div class="eco-row">
+        <span class="eco-pill eco-pill-skill">skills marketplace</span>
+        <span class="eco-pill eco-pill-skill">aicfg</span>
+        <span class="eco-pill eco-pill-skill">plugins</span>
+      </div>
+      <div class="eco-connector">▼</div>
+      <div class="eco-row">
+        <span class="eco-pill eco-pill-fit">EchoFit Diet</span>
+        <span class="eco-pill eco-pill-fit">EchoFit Workout</span>
+        <span class="eco-pill eco-pill-fit">EchoFit Health</span>
+      </div>
+    </div>
+
+    <footer>
+      <a href="https://github.com/echomodel">GitHub</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://echomodel.ai">echomodel.ai</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://echoskill.ai">echoskill.ai</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://echofit.ai">echofit.ai</a>
+      &nbsp;&middot;&nbsp;
+      echosphere.dev
+    </footer>
+  </div>
+</body>
+</html>
